@@ -5,19 +5,19 @@ import { FaStar, FaQuoteLeft } from 'react-icons/fa';
 const testimonials = [
   {
     name: 'John Doe',
-    role: 'CEO, TechCorp',
+    role: '',
     text: 'Nilay transformed our reporting process. The dashboards are intuitive and insightful.',
     rating: 5,
   },
   {
     name: 'Jane Smith',
-    role: 'Head of Finance, FinanceHub',
+    role: '',
     text: 'Incredible attention to detail. Our financial reports are now accurate and real-time.',
     rating: 5,
   },
   {
     name: 'Mike Johnson',
-    role: 'Operations Manager, DataDrive',
+    role: '',
     text: 'The self-service BI solution he built saved us countless hours. Highly recommended!',
     rating: 5,
   },

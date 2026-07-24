@@ -1,34 +1,34 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
   {
     title: 'Executive KPI Dashboard',
     desc: 'Interactive Power BI dashboard for executives to monitor KPIs with drill-down capabilities and real-time business insights.',
     tech: ['Power BI', 'DAX', 'Power Query'],
-    image: 'https://via.placeholder.com/400x300/2563EB/FFFFFF?text=KPI+Dashboard',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center',
     link: '#',
   },
   {
     title: 'Financial Reporting Dashboard',
     desc: 'Revenue analysis, cost analysis, profitability, variance analysis, Budget vs Actual.',
     tech: ['Power BI', 'DAX', 'SQL'],
-    image: 'https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Financial+Reporting',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center',
     link: '#',
   },
   {
     title: 'Multi-Source Reporting Model',
     desc: 'Combined data from multiple systems using ETL, Power Query, SQL, and Power BI.',
     tech: ['Power BI', 'Power Query', 'SQL'],
-    image: 'https://via.placeholder.com/400x300/14B8A6/FFFFFF?text=Multi-Source+Model',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&crop=center',
     link: '#',
   },
   {
     title: 'Self-Service BI Solution',
     desc: 'Interactive dashboards, role-based reporting, training users, reducing manual reporting.',
     tech: ['Power BI', 'DAX', 'Power Query'],
-    image: 'https://via.placeholder.com/400x300/0F172A/FFFFFF?text=Self-Service+BI',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center&sat=-100',
     link: '#',
   },
 ];
@@ -55,6 +55,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <div className="flex space-x-4 text-white">
