@@ -11,30 +11,19 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
-      colors: {
-        // Core Brand Green
-        primary: {
-          DEFAULT: '#4cb151',
-          light: '#65c46a',
-          dark: '#388e3c',
-        },
-        // Secondary complement for vibrant gradients & badges
-        secondary: {
-          DEFAULT: '#2e7d32',
-          light: '#419645',
-        },
-        // Highlight accent (Electric Teal/Cyan for visual pop)
-        accent: '#00b4d8',
-        
-        // Background Colors
-        darkbg: '#9ad316',      // Rich Slate Dark Mode (contrast for white text)
-        darkcard: '#9cb917',    // Card background in dark mode
-        lightbg: '#065f24',     // Clean Light Mode background
-        lightcard: '#7ea514',   // Card background in light mode
-      },
+       colors: {
+  primary: '#6366F1',    // Electric Indigo / Purple
+  secondary: '#8B5CF6',  // Vivid Violet
+  accent: '#06B6D4',     // Glowing Cyan
+  
+  // Backgrounds with subtle hue instead of flat gray
+  darkbg: '#0B0F19',     // Rich Deep Obsidian Blue
+  darkcard: '#161F33',   // Glowing Elevated Card Background
+  lightbg: '#F3F4F6',    // Soft Off-White
+  lightcard: '#FFFFFF',  // Clean White Card
+},
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-brand': 'linear-gradient(135deg, #4cb151 0%, #2e7d32 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

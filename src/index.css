@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-inter antialiased transition-colors duration-300;
+    @apply bg-lightbg dark:bg-darkbg font-inter antialiased transition-colors duration-300 text-gray-800 dark:text-white;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-poppins;
@@ -16,13 +16,14 @@
 
 @layer components {
   .glass {
-    @apply bg-white/30 dark:bg-darkbg/70 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl;
+    /* use arbitrary values for opacity on hex colors */
+    @apply bg-[#7EA514]/70 dark:bg-[#9CB917]/80 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl;
   }
   .glass-card {
     @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
   }
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
   }
   .section-title {
     @apply text-3xl md:text-4xl font-bold mb-8 text-center;
