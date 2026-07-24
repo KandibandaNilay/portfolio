@@ -53,18 +53,27 @@ const About = () => {
             
             {/* Main Text Content */}
             <div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-              <p>
-                I am a freelance Power BI and Business Intelligence consultant specializing in dashboard development, KPI reporting, data transformation, and management reporting.
-              </p>
-              <p>
-                I help businesses turn raw, scattered data into clear, reliable, and actionable insights that support better decision-making.
-              </p>
-              <p>
-                With over 8 years of experience across ERP consulting, digital transformation, and Business Intelligence, I combine strong technical expertise with practical business understanding.
-              </p>
-              <p>
-                I work with Power BI, DAX, Power Query, SQL, Excel, ETL, and Data Modeling to build scalable reporting solutions that reduce manual work, improve data quality, and provide actionable insights.
-              </p>
+              {/* Main Text Content */}
+<div className="lg:col-span-7 space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+  {/* Main Text Content */}
+<div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+  {/* Main Text Content */}
+<div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+  <p>
+    As a specialized <strong className="text-gray-900 dark:text-white font-semibold">Power BI & BI Solutions Consultant</strong>, I help organizations convert raw, multi-source data into reliable KPI dashboards and executive reporting frameworks.
+  </p>
+  <p>
+    Backed by more than <strong className="text-gray-900 dark:text-white font-semibold">8 years of experience</strong> across ERP consulting and enterprise analytics, I combine deep technical precision with business acumen to solve complex reporting challenges.
+  </p>
+  <p>
+    I specialize in building robust data models, optimizing DAX performance, and structuring end-to-end ETL pipelines using <strong className="text-gray-900 dark:text-white font-semibold">Power BI, Power Query, SQL, and Excel Automation</strong>.
+  </p>
+  <p>
+    My goal is simple: reduce manual reporting overhead, enforce data integrity, and empower leadership teams with real-time, actionable insights.
+  </p>
+</div>
+</div>
+</div>
               
               {/* Highlight Box */}
               <div className="p-4 rounded-xl bg-primary/10 border-l-4 border-primary mt-2">
