@@ -1,9 +1,29 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useEffect, useState } from 'react';
+
+// Counter component that smoothly animates numbers up when visible
+const StatNumber = ({ value }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = parseInt(value, 10);
+    const duration = 1200; // Animation speed in ms
+    const incrementTime = Math.max(duration / end, 15);
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, incrementTime);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return <span>{count}+</span>;
+};
 
 const About = () => {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
-
   const stats = [
     { label: 'Years Experience', value: 8 },
     { label: 'Dashboards Built', value: 50 },
@@ -11,18 +31,28 @@ const About = () => {
     { label: 'Projects', value: 45 },
   ];
 
+  const techStack = ['Power BI', 'DAX', 'Power Query', 'SQL', 'Excel', 'ETL', 'Data Modeling'];
+
   return (
-    <section id="about" className="py-20 bg-lightbg/50 dark:bg-darkbg/50">
+    <section id="about" className="py-24 bg-lightbg/50 dark:bg-darkbg/50 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="space-y-10"
         >
-          <h2 className="section-title gradient-text">About Me</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          {/* Section Header */}
+          <div className="space-y-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">Overview</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight gradient-text">About Me</h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Main Text Content */}
+            <div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
               <p>
                 I am a freelance Power BI and Business Intelligence consultant specializing in dashboard development, KPI reporting, data transformation, and management reporting.
               </p>
@@ -35,18 +65,47 @@ const About = () => {
               <p>
                 I work with Power BI, DAX, Power Query, SQL, Excel, ETL, and Data Modeling to build scalable reporting solutions that reduce manual work, improve data quality, and provide actionable insights.
               </p>
-              <p className="font-semibold text-primary">
-                My focus isn't simply creating dashboards. I solve business problems through analytics.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="glass-card text-center">
-                  <div className="text-3xl font-bold text-primary">{stat.value}+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+              
+              {/* Highlight Box */}
+              <div className="p-4 rounded-xl bg-primary/10 border-l-4 border-primary mt-2">
+                <p className="font-semibold text-primary dark:text-primary-light text-base md:text-lg">
+                  My focus isn't simply creating dashboards. I solve business problems through analytics.
+                </p>
+              </div>
+
+              {/* Skills Tags */}
+              <div className="pt-2">
+                <div className="flex flex-wrap gap-2">
+                  {techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Stats Cards */}
+            <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <motion.div
+                  key={stat.label}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className="glass-card text-center p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800 shadow-md hover:border-primary/40 transition-colors flex flex-col justify-center"
+                >
+                  <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">
+                    <StatNumber value={stat.value} />
+                  </div>
+                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                    {stat.label}
+                  </div>
+                </motion.div>
               ))}
             </div>
+
           </div>
         </motion.div>
       </div>

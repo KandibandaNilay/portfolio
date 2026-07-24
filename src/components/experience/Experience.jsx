@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaBriefcase } from 'react-icons/fa';
+import { FaBriefcase, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
 const experiences = [
   {
@@ -47,37 +46,68 @@ const experiences = [
 ];
 
 const Experience = () => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="section-title gradient-text">Experience</h2>
-        <div ref={ref} className="relative border-l-2 border-primary/40 pl-8 ml-4 space-y-12">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
+          <span className="text-xs font-semibold uppercase tracking-wider text-primary">Career Journey</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight gradient-text">Work Experience</h2>
+          <p className="text-gray-600 dark:text-gray-400 text-base">
+            Over 8 years of hands-on expertise in BI, ERP consulting, and data transformations.
+          </p>
+        </div>
+
+        {/* Timeline Container */}
+        <div className="relative border-l-2 border-primary/30 pl-6 sm:pl-10 ml-4 sm:ml-6 space-y-10">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+              className="relative group"
             >
-              <div className="absolute -left-11 top-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm">
+              {/* Timeline Icon Node */}
+              <div className="absolute -left-[35px] sm:-left-[51px] top-1 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs shadow-md shadow-primary/30 group-hover:scale-110 transition-transform">
                 <FaBriefcase />
               </div>
-              <div className="glass-card p-6">
-                <h3 className="text-xl font-bold">{exp.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{exp.location}</p>
-                <p className="text-sm text-primary font-semibold">{exp.period}</p>
-                <ul className="mt-3 list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+
+              {/* Experience Card */}
+              <div className="glass-card p-6 md:p-8 rounded-2xl border border-gray-200/60 dark:border-gray-800 shadow-md hover:border-primary/40 transition-all hover:shadow-lg">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                      {exp.title}
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">
+                      <FaMapMarkerAlt className="text-primary/70" />
+                      <span>{exp.location}</span>
+                    </div>
+                  </div>
+
+                  {/* Period Badge */}
+                  <span className="inline-block px-3.5 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20 whitespace-nowrap self-start sm:self-auto">
+                    {exp.period}
+                  </span>
+                </div>
+
+                {/* Duties List */}
+                <ul className="mt-4 space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
                   {exp.duties.map((duty, i) => (
-                    <li key={i}>{duty}</li>
+                    <li key={i} className="flex items-start gap-2.5">
+                      <FaCheckCircle className="text-primary text-xs mt-1 shrink-0" />
+                      <span className="leading-relaxed">{duty}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

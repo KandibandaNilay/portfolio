@@ -12,14 +12,29 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        primary: '#2563EB',
-        secondary: '#06B6D4',
-        accent: '#14B8A6',
-        darkbg: '#0F172A',
-        lightbg: '#F8FAFC',
+        // Core Brand Green
+        primary: {
+          DEFAULT: '#4cb151',
+          light: '#65c46a',
+          dark: '#388e3c',
+        },
+        // Secondary complement for vibrant gradients & badges
+        secondary: {
+          DEFAULT: '#2e7d32',
+          light: '#419645',
+        },
+        // Highlight accent (Electric Teal/Cyan for visual pop)
+        accent: '#00b4d8',
+        
+        // Background Colors
+        darkbg: '#9ad316',      // Rich Slate Dark Mode (contrast for white text)
+        darkcard: '#9cb917',    // Card background in dark mode
+        lightbg: '#065f24',     // Clean Light Mode background
+        lightcard: '#7ea514',   // Card background in light mode
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-brand': 'linear-gradient(135deg, #4cb151 0%, #2e7d32 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
