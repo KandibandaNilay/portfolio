@@ -43,7 +43,7 @@ const Footer = () => {
             <Link 
               to="/" 
               onClick={() => handleNavClick('/')} 
-              className="inline-block text-2xl font-poppins font-extrabold tracking-tight gradient-text"
+              className="inline-block text-2xl font-poppins font-extrabold tracking-tight text-gray-800 dark:text-white"
             >
               Nilay Kandibanda
             </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:text-primary hover:bg-primary/10 transition-colors"
+                className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 <FaLinkedin />
               </motion.a>
@@ -65,7 +65,7 @@ const Footer = () => {
                 whileHover={{ y: -3 }}
                 href="mailto:nilaykandibanda@gmail.com"
                 aria-label="Email"
-                className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:text-primary hover:bg-primary/10 transition-colors"
+                className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 <FaEnvelope />
               </motion.a>
@@ -77,27 +77,27 @@ const Footer = () => {
             <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white">Navigation</h4>
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
               <li>
-                <a href="/#about" onClick={(e) => { e.preventDefault(); handleNavClick('/#about'); }} className="hover:text-primary transition-colors">
+                <a href="/#about" onClick={(e) => { e.preventDefault(); handleNavClick('/#about'); }} className="hover:text-gray-900 dark:hover:text-white transition-colors">
                   About Me
                 </a>
               </li>
               <li>
-                <a href="/#services" onClick={(e) => { e.preventDefault(); handleNavClick('/#services'); }} className="hover:text-primary transition-colors">
+                <a href="/#services" onClick={(e) => { e.preventDefault(); handleNavClick('/#services'); }} className="hover:text-gray-900 dark:hover:text-white transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="/#experience" onClick={(e) => { e.preventDefault(); handleNavClick('/#experience'); }} className="hover:text-primary transition-colors">
+                <a href="/#experience" onClick={(e) => { e.preventDefault(); handleNavClick('/#experience'); }} className="hover:text-gray-900 dark:hover:text-white transition-colors">
                   Experience
                 </a>
               </li>
               <li>
-                <a href="/#projects" onClick={(e) => { e.preventDefault(); handleNavClick('/#projects'); }} className="hover:text-primary transition-colors">
+                <a href="/#projects" onClick={(e) => { e.preventDefault(); handleNavClick('/#projects'); }} className="hover:text-gray-900 dark:hover:text-white transition-colors">
                   Portfolio
                 </a>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-primary transition-colors">
+                <Link to="/blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                   Blog
                 </Link>
               </li>
@@ -114,7 +114,7 @@ const Footer = () => {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('/#contact'); }}
-                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider shadow-md hover:shadow-primary/30 hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gray-800 dark:bg-gray-700 text-white text-xs font-semibold uppercase tracking-wider shadow-md hover:shadow-gray-500/30 hover:scale-105 transition-all"
               >
                 Start a Conversation
               </a>
@@ -129,7 +129,7 @@ const Footer = () => {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-primary transition-colors focus:outline-none"
+            className="flex items-center gap-2 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none"
             aria-label="Back to top"
           >
             <span>Back to top</span>

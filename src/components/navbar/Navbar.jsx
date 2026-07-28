@@ -87,26 +87,26 @@ const Navbar = () => {
   return (
     <>
       <header
-  className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-    scrolled
-      ? 'glass shadow-lg dark:bg-darkbg/90 dark:backdrop-blur-lg'
-      : 'bg-transparent dark:bg-darkbg/50 dark:backdrop-blur-sm'
-  }`}
->
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? 'glass shadow-lg dark:bg-darkbg/90 dark:backdrop-blur-lg'
+            : 'bg-transparent dark:bg-darkbg/50 dark:backdrop-blur-sm'
+        }`}
+      >
         <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo – neutral text instead of gradient */}
           <Link 
             to="/" 
             onClick={() => handleNavClick('/')}
             className="flex items-center space-x-2 group"
           >
-            <span className="text-xl md:text-2xl font-poppins font-extrabold tracking-tight gradient-text group-hover:opacity-90 transition-opacity">
+            <span className="text-xl md:text-2xl font-poppins font-extrabold tracking-tight text-gray-800 dark:text-white group-hover:opacity-90 transition-opacity">
               Nilay Kandibanda
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation – neutral colors */}
           <nav className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link) => {
               const isHashLink = link.to.startsWith('/#');
@@ -126,15 +126,15 @@ const Navbar = () => {
                   }}
                   className={`relative text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'text-primary'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary'
+                      ? 'text-gray-900 dark:text-white'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {link.name}
                   {isActive && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-700 dark:bg-gray-300 rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -152,7 +152,7 @@ const Navbar = () => {
                 e.preventDefault();
                 handleNavClick('/#contact');
               }}
-              className="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-primary text-white rounded-full shadow-md shadow-primary/20 hover:shadow-lg hover:scale-105 transition-all"
+              className="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-md shadow-gray-500/20 hover:shadow-lg hover:scale-105 transition-all"
             >
               Hire Me
             </a>
@@ -171,10 +171,10 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Scroll Progress Indicator */}
+        {/* Scroll Progress Indicator – neutral gradient */}
         <div className="w-full h-0.5 bg-gray-200/30 dark:bg-gray-800/30">
           <motion.div
-            className="h-full bg-gradient-to-r from-primary via-secondary to-accent"
+            className="h-full bg-gray-700 dark:bg-gray-400"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -193,7 +193,7 @@ const Navbar = () => {
               className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
             />
 
-            {/* Side Drawer */}
+            {/* Side Drawer – neutral mobile links */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -210,14 +210,14 @@ const Navbar = () => {
                       e.preventDefault();
                       handleNavClick(link.to);
                     }}
-                    className="text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-primary transition-colors py-1 border-b border-gray-100 dark:border-gray-800/50"
+                    className="text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 transition-colors py-1 border-b border-gray-100 dark:border-gray-800/50"
                   >
                     {link.name}
                   </a>
                 ))}
               </nav>
 
-              {/* Mobile CTA */}
+              {/* Mobile CTA – neutral */}
               <div className="pt-6">
                 <a
                   href="#contact"
@@ -225,7 +225,7 @@ const Navbar = () => {
                     e.preventDefault();
                     handleNavClick('/#contact');
                   }}
-                  className="w-full block text-center py-3 bg-primary text-white font-semibold text-sm rounded-full shadow-lg shadow-primary/25"
+                  className="w-full block text-center py-3 bg-gray-800 dark:bg-gray-700 text-white font-semibold text-sm rounded-full shadow-lg shadow-gray-500/25"
                 >
                   Hire Me
                 </a>

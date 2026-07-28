@@ -39,7 +39,10 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-lightbg/50 dark:bg-darkbg/50">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="section-title gradient-text">Portfolio Projects</h2>
+        {/* Title – solid neutral instead of gradient */}
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+          Portfolio Projects
+        </h2>
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -59,18 +62,26 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <div className="flex space-x-4 text-white">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-gray-300 transition-colors"
+                    >
                       <FaExternalLinkAlt />
                     </a>
                   </div>
                 </div>
               </div>
               <div className="p-5">
-                <h3 className="text-xl font-bold">{project.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{project.desc}</p>
                 <div className="flex flex-wrap gap-2 mt-3">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium"
+                    >
                       {tech}
                     </span>
                   ))}

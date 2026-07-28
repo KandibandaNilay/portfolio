@@ -45,44 +45,39 @@ const About = () => {
         >
           {/* Section Header */}
           <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-primary">Overview</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight gradient-text">About Me</h2>
+            <span className="text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+              Overview
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              About Me
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
             {/* Main Text Content */}
             <div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-              {/* Main Text Content */}
-<div className="lg:col-span-7 space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-  {/* Main Text Content */}
-<div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-  {/* Main Text Content */}
-<div className="lg:col-span-7 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-  <p>
-    As a specialized <strong className="text-gray-900 dark:text-white font-semibold">Power BI & BI Solutions Consultant</strong>, I help organizations convert raw, multi-source data into reliable KPI dashboards and executive reporting frameworks.
-  </p>
-  <p>
-    Backed by more than <strong className="text-gray-900 dark:text-white font-semibold">8 years of experience</strong> across ERP consulting and enterprise analytics, I combine deep technical precision with business acumen to solve complex reporting challenges.
-  </p>
-  <p>
-    I specialize in building robust data models, optimizing DAX performance, and structuring end-to-end ETL pipelines using <strong className="text-gray-900 dark:text-white font-semibold">Power BI, Power Query, SQL, and Excel Automation</strong>.
-  </p>
-  <p>
-    My goal is simple: reduce manual reporting overhead, enforce data integrity, and empower leadership teams with real-time, actionable insights.
-  </p>
-</div>
-</div>
-</div>
+              <p>
+                As a specialized <strong className="text-gray-900 dark:text-white font-semibold">Power BI & BI Solutions Consultant</strong>, I help organizations convert raw, multi-source data into reliable KPI dashboards and executive reporting frameworks.
+              </p>
+              <p>
+                Backed by more than <strong className="text-gray-900 dark:text-white font-semibold">8 years of experience</strong> across ERP consulting and enterprise analytics, I combine deep technical precision with business acumen to solve complex reporting challenges.
+              </p>
+              <p>
+                I specialize in building robust data models, optimizing DAX performance, and structuring end-to-end ETL pipelines using <strong className="text-gray-900 dark:text-white font-semibold">Power BI, Power Query, SQL, and Excel Automation</strong>.
+              </p>
+              <p>
+                My goal is simple: reduce manual reporting overhead, enforce data integrity, and empower leadership teams with real-time, actionable insights.
+              </p>
               
-              {/* Highlight Box */}
-              <div className="p-4 rounded-xl bg-primary/10 border-l-4 border-primary mt-2">
-                <p className="font-semibold text-primary dark:text-primary-light text-base md:text-lg">
+              {/* Highlight Box – now with neutral colors */}
+              <div className="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 border-l-4 border-gray-400 dark:border-gray-600 mt-2">
+                <p className="font-semibold text-gray-800 dark:text-gray-200 text-base md:text-lg">
                   My focus isn't simply creating dashboards. I solve business problems through analytics.
                 </p>
               </div>
 
-              {/* Skills Tags */}
+              {/* Skills Tags – already neutral, but we keep them */}
               <div className="pt-2">
                 <div className="flex flex-wrap gap-2">
                   {techStack.map((tech) => (
@@ -97,15 +92,15 @@ const About = () => {
               </div>
             </div>
 
-            {/* Stats Cards */}
+            {/* Stats Cards – numbers now neutral */}
             <div className="lg:col-span-5 grid grid-cols-2 gap-4">
               {stats.map((stat) => (
                 <motion.div
                   key={stat.label}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="glass-card text-center p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800 shadow-md hover:border-primary/40 transition-colors flex flex-col justify-center"
+                  className="glass-card text-center p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800 shadow-md hover:border-gray-400 dark:hover:border-gray-600 transition-colors flex flex-col justify-center"
                 >
-                  <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">
+                  <div className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-2">
                     <StatNumber value={stat.value} />
                   </div>
                   <div className="text-sm font-medium text-gray-600 dark:text-gray-400">
