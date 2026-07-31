@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -16,16 +16,14 @@
 
 @layer components {
   .glass {
-    /* use arbitrary values for opacity on hex colors */
-    @apply bg-[#7EA514]/70 dark:bg-[#9CB917]/80 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl;
+    @apply bg-white/5 dark:bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
   }
+  
   .glass-card {
-    @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+    @apply glass rounded-2xl p-6 transition-all duration-500 hover:shadow-[0_8px_40px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:bg-white/10 dark:hover:bg-slate-800/50 hover:border-white/20;
   }
-.gradient-text {
-  @apply text-gray-900 dark:text-white;
-}
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-8 text-center;
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent;
   }
-}
+} */

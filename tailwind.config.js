@@ -8,20 +8,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
-       colors: {
-  primary: '#6366F1',    // Electric Indigo / Purple
-  secondary: '#8B5CF6',  // Vivid Violet
-  accent: '#06B6D4',     // Glowing Cyan
-  
-  // Backgrounds with subtle hue instead of flat gray
-  darkbg: '#0B0F19',     // Rich Deep Obsidian Blue
-  darkcard: '#161F33',   // Glowing Elevated Card Background
-  lightbg: '#F3F4F6',    // Soft Off-White
-  lightcard: '#FFFFFF',  // Clean White Card
-},
+  colors: {
+    primary: '#fbbf24',    // Warm Amber/Gold: Premium, high-end consulting vibe
+    secondary: '#facc15',  // Yellow: Sharp, energetic secondary highlights
+    accent: '#e0de48',     // Sky Blue: A sharp, cold contrast to balance the gold
+    darkbg: '#61616b',     // Zinc 950: The standard for sleek, modern web apps
+    darkcard: '#4a4a53',   // Zinc 900: Perfect contrast for border highlighting
+  },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import ThemeToggle from '../themetoggle/ThemeToggle';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 
 const Navbar = () => {
@@ -21,7 +20,6 @@ const Navbar = () => {
     { name: 'Experience', to: '/#experience' },
     { name: 'Projects', to: '/#projects' },
     { name: 'Contact', to: '/#contact' },
-    { name: 'Blog', to: '/blog' },
   ];
 
   // Lock background scroll when mobile drawer is open
@@ -89,24 +87,25 @@ const Navbar = () => {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? 'glass shadow-lg dark:bg-darkbg/90 dark:backdrop-blur-lg'
+            ? 'glass shadow-lg dark:bg-darkbg/90 dark:backdrop-blur-lg border-b border-white/10'
             : 'bg-transparent dark:bg-darkbg/50 dark:backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
           
-          {/* Logo – neutral text instead of gradient */}
+          {/* Logo */}
           <Link 
             to="/" 
             onClick={() => handleNavClick('/')}
             className="flex items-center space-x-2 group"
           >
-            <span className="text-xl md:text-2xl font-poppins font-extrabold tracking-tight text-gray-800 dark:text-white group-hover:opacity-90 transition-opacity">
-              Nilay Kandibanda
+            <span className="text-xl md:text-2xl font-poppins font-extrabold tracking-tight transition-all duration-300 group-hover:opacity-80">
+              <span className="text-slate-900 dark:text-white">Nilay </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Kandibanda</span>
             </span>
           </Link>
 
-          {/* Desktop Navigation – neutral colors */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link) => {
               const isHashLink = link.to.startsWith('/#');
@@ -126,15 +125,15 @@ const Navbar = () => {
                   }}
                   className={`relative text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'text-gray-900 dark:text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                      ? 'text-primary dark:text-primary'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary'
                   }`}
                 >
                   {link.name}
                   {isActive && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-700 dark:bg-gray-300 rounded-full"
+                      className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-primary rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -145,14 +144,13 @@ const Navbar = () => {
 
           {/* Desktop Right Action Area */}
           <div className="hidden lg:flex items-center space-x-4">
-            <ThemeToggle />
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick('/#contact');
               }}
-              className="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-md shadow-gray-500/20 hover:shadow-lg hover:scale-105 transition-all"
+              className="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-md shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all"
             >
               Hire Me
             </a>
@@ -160,10 +158,9 @@ const Navbar = () => {
 
           {/* Mobile Right Controls */}
           <div className="flex items-center space-x-3 lg:hidden">
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-xl text-gray-800 dark:text-gray-200 focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 text-xl text-slate-800 dark:text-slate-200 focus:outline-none rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <FaTimes /> : <FaBars />}
@@ -171,10 +168,10 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Scroll Progress Indicator – neutral gradient */}
-        <div className="w-full h-0.5 bg-gray-200/30 dark:bg-gray-800/30">
+        {/* Scroll Progress Indicator */}
+        <div className="w-full h-0.5 bg-slate-200/30 dark:bg-slate-800/50">
           <motion.div
-            className="h-full bg-gray-700 dark:bg-gray-400"
+            className="h-full bg-gradient-to-r from-primary via-secondary to-accent"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -190,34 +187,47 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+              className="fixed inset-0 bg-slate-900/60 z-40 lg:hidden backdrop-blur-sm"
             />
 
-            {/* Side Drawer – neutral mobile links */}
+            {/* Side Drawer */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-4/5 max-w-xs glass bg-white/90 dark:bg-gray-900/95 shadow-2xl z-50 p-6 pt-20 lg:hidden flex flex-col justify-between border-l border-gray-200/50 dark:border-gray-800/50"
+              className="fixed top-0 right-0 h-full w-4/5 max-w-xs glass bg-white/95 dark:bg-darkbg/95 shadow-2xl z-50 p-6 pt-20 lg:hidden flex flex-col justify-between border-l border-slate-200/50 dark:border-slate-700/50"
             >
               <nav className="flex flex-col space-y-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.to}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.to);
-                    }}
-                    className="text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 transition-colors py-1 border-b border-gray-100 dark:border-gray-800/50"
-                  >
-                    {link.name}
-                  </a>
-                ))}
+                {navLinks.map((link) => {
+                  const isHashLink = link.to.startsWith('/#');
+                  const linkHash = isHashLink ? link.to.split('#')[1] : '';
+                  const isActive =
+                    (link.to === '/' && location.pathname === '/' && !activeSection) ||
+                    (isHashLink && activeSection === linkHash) ||
+                    (link.to === '/blog' && location.pathname.startsWith('/blog'));
+
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.to}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(link.to);
+                      }}
+                      className={`text-lg font-semibold transition-colors py-2 border-b border-slate-100 dark:border-slate-800/50 ${
+                        isActive
+                          ? 'text-primary dark:text-primary'
+                          : 'text-slate-800 dark:text-slate-200 hover:text-primary dark:hover:text-primary'
+                      }`}
+                    >
+                      {link.name}
+                    </a>
+                  );
+                })}
               </nav>
 
-              {/* Mobile CTA – neutral */}
+              {/* Mobile CTA */}
               <div className="pt-6">
                 <a
                   href="#contact"
@@ -225,7 +235,7 @@ const Navbar = () => {
                     e.preventDefault();
                     handleNavClick('/#contact');
                   }}
-                  className="w-full block text-center py-3 bg-gray-800 dark:bg-gray-700 text-white font-semibold text-sm rounded-full shadow-lg shadow-gray-500/25"
+                  className="w-full block text-center py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm rounded-full shadow-lg shadow-primary/25"
                 >
                   Hire Me
                 </a>
